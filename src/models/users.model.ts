@@ -1,6 +1,9 @@
 import {Entity, model, property, belongsTo, hasOne} from '@loopback/repository';
 import {Roles} from './roles.model';
 import {Useraddress} from './useraddress.model';
+import {Customers} from './customers.model';
+import {Employees} from './employees.model';
+import {Stores} from './stores.model';
 
 @model()
 export class Users extends Entity {
@@ -29,8 +32,20 @@ export class Users extends Entity {
   })
   created: string;
 
-  @belongsTo(() => Roles, {name: 'roles'})
-  role_id: number;
+  @hasOne(() => Roles)
+  rolesId: Roles;
+
+  @hasOne(() => Useraddress)
+  useraddress: Useraddress;
+
+  @hasOne(() => Customers)
+  customers: Customers;
+
+  @hasOne(() => Employees)
+  employees: Employees;
+
+  @hasOne(() => Stores)
+  stores: Stores;
 
   constructor(data?: Partial<Users>) {
     super(data);

@@ -4,7 +4,7 @@ import {juggler} from '@loopback/repository';
 const config = {
   name: 'db',
   connector: 'mysql',
-  url: 'mysql://root:p@ssw0rd4321@122.155.186.154:3309/airin1_db',
+  url: 'mysql://root:p@ssw0rd4321@122.155.186.154:3309/airin1_dev_db',
   host: '',
   port: 0,
   user: '',

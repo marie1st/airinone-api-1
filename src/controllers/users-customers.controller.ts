@@ -17,22 +17,22 @@ import {
 } from '@loopback/rest';
 import {
   Users,
-  Roles,
+  Customers,
 } from '../models';
 import {UsersRepository} from '../repositories';
 
-export class UsersRolesController {
+export class UsersCustomersController {
   constructor(
     @repository(UsersRepository) protected usersRepository: UsersRepository,
   ) { }
 
-  @get('/users/{id}/roles', {
+  @get('/users/{id}/customers', {
     responses: {
       '200': {
-        description: 'Users has one Roles',
+        description: 'Users has one Customers',
         content: {
           'application/json': {
-            schema: getModelSchemaRef(Roles),
+            schema: getModelSchemaRef(Customers),
           },
         },
       },
@@ -40,15 +40,15 @@ export class UsersRolesController {
   })
   async get(
     @param.path.number('id') id: number,
-    @param.query.object('filter') filter?: Filter<Roles>,
-  ): Promise<Roles> {
-    return this.usersRepository.rolesId(id).get(filter);
+    @param.query.object('filter') filter?: Filter<Customers>,
+  ): Promise<Customers> {
+    return this.usersRepository.customers(id).get(filter);
   }
 
-  @patch('/users/{id}/roles', {
+  @patch('/users/{id}/customers', {
     responses: {
       '200': {
-        description: 'Users.Roles PATCH success count',
+        description: 'Users.Customers PATCH success count',
         content: {'application/json': {schema: CountSchema}},
       },
     },
@@ -58,28 +58,28 @@ export class UsersRolesController {
     @requestBody({
       content: {
         'application/json': {
-          schema: getModelSchemaRef(Roles, {partial: true}),
+          schema: getModelSchemaRef(Customers, {partial: true}),
         },
       },
     })
-    roles: Partial<Roles>,
-    @param.query.object('where', getWhereSchemaFor(Roles)) where?: Where<Roles>,
+    customers: Partial<Customers>,
+    @param.query.object('where', getWhereSchemaFor(Customers)) where?: Where<Customers>,
   ): Promise<Count> {
-    return this.usersRepository.rolesId(id).patch(roles, where);
+    return this.usersRepository.customers(id).patch(customers, where);
   }
 
-  @del('/users/{id}/roles', {
+  @del('/users/{id}/customers', {
     responses: {
       '200': {
-        description: 'Users.Roles DELETE success count',
+        description: 'Users.Customers DELETE success count',
         content: {'application/json': {schema: CountSchema}},
       },
     },
   })
   async delete(
     @param.path.number('id') id: number,
-    @param.query.object('where', getWhereSchemaFor(Roles)) where?: Where<Roles>,
+    @param.query.object('where', getWhereSchemaFor(Customers)) where?: Where<Customers>,
   ): Promise<Count> {
-    return this.usersRepository.rolesId(id).delete(where);
+    return this.usersRepository.customers(id).delete(where);
   }
 }

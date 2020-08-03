@@ -1,8 +1,7 @@
-import {Entity, model, property, belongsTo} from '@loopback/repository';
-import {Users} from './users.model';
+import {Entity, model, property} from '@loopback/repository';
 
 @model()
-export class Useraddress extends Entity {
+export class Customers extends Entity {
   @property({
     type: 'number',
     id: true,
@@ -14,50 +13,64 @@ export class Useraddress extends Entity {
     type: 'string',
     required: true,
   })
-  address: string;
+  first_name: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  subdistrict: string;
+  last_name: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  district: string;
+  phone_number: string;
+
+  @property({
+    type: 'string',
+  })
+  date_of_birth: string;
+
+  @property({
+    type: 'string',
+  })
+  career?: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  province: string;
+  pid: string;
+
+  @property({
+    type: 'string',
+  })
+  id_line?: string;
 
   @property({
     type: 'string',
     required: true,
   })
-  post_code: string;
+  email: string;
 
   @property({
     type: 'string',
-    required: true,
   })
-  country: string;
+  facebook?: string;
 
   @property({
     type: 'number',
   })
   usersId?: number;
 
-  constructor(data?: Partial<Useraddress>) {
+  constructor(data?: Partial<Customers>) {
     super(data);
   }
 }
 
-export interface UseraddressRelations {
+export interface CustomersRelations {
   // describe navigational properties here
 }
 
-export type UseraddressWithRelations = Useraddress & UseraddressRelations;
+export type CustomersWithRelations = Customers & CustomersRelations;
