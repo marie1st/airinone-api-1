@@ -1,4 +1,10 @@
-import {Entity, model, property} from '@loopback/repository';
+import {Entity, model, property, hasOne} from '@loopback/repository';
+import {Religion} from './religion.model';
+import {Position} from './position.model';
+import {Department} from './department.model';
+import {Employment} from './employment.model';
+import {Education} from './education.model';
+import {Talent} from './talent.model';
 
 @model()
 export class Employees extends Entity {
@@ -78,6 +84,24 @@ export class Employees extends Entity {
     type: 'number',
   })
   workforces?: number;
+
+  @hasOne(() => Religion)
+  religion: Religion;
+
+  @hasOne(() => Position)
+  position: Position;
+
+  @hasOne(() => Department)
+  department: Department;
+
+  @hasOne(() => Employment)
+  employment: Employment;
+
+  @hasOne(() => Education)
+  education: Education;
+
+  @hasOne(() => Talent)
+  talent: Talent;
 
   constructor(data?: Partial<Employees>) {
     super(data);
