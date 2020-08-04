@@ -13,3 +13,8 @@ export * from './employment.repository';
 export * from './position.repository';
 export * from './religion.repository';
 export * from './talent.repository';
+export * from './install-process.repository';
+export * from './mechanic-equipment-dropdown.repository';
+export * from './mechanic-equipment.repository';
+export * from './single-use-equipment-dropdown.repository';
+export * from './single-use-equipment.repository';

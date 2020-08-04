@@ -13,3 +13,8 @@ export * from './department.model';
 export * from './employment.model';
 export * from './education.model';
 export * from './talent.model';
+export * from './single-use-equipment-dropdown.model';
+export * from './install-process.model';
+export * from './mechanic-equipment-dropdown.model';
+export * from './single-use-equipment.model';
+export * from './mechanic-equipment.model';
