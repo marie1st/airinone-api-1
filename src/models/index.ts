@@ -4,3 +4,6 @@ export * from './useraddress.model';
 export * from './customers.model';
 export * from './stores.model';
 export * from './employees.model';
+export * from './orders.model';
+export * from './products.model';
+export * from './manageemployees.model';

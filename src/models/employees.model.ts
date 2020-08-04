@@ -74,6 +74,11 @@ export class Employees extends Entity {
   })
   usersId?: number;
 
+  @property({
+    type: 'number',
+  })
+  workforces?: number;
+
   constructor(data?: Partial<Employees>) {
     super(data);
   }
